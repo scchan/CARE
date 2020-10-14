@@ -115,20 +115,17 @@ if (ENABLE_CUDA)
 else()
    set(CARE_ENABLE_LOOP_FUSER OFF CACHE STRING "Enable the loop fuser")
 endif()
+
+# HIP specific options
+if (ENABLE_HIP)
+   # Virtual device functions are not supported
+   # TODO: Remove when virtual device functions are supported
+   set(CARE_ENABLE_LOOP_FUSER OFF CACHE STRING "Enable the loop fuser")
+endif ()
+
 ################################
 # BLT
 ################################
-
-# TODO: Setting BLT_DOCS_TARGET_NAME will not be necessary after RAJA is
-#       updated past v0.11.0. BLT and RAJA both define a "docs" target,
-#       which cmake does not allow. The name of the BLT "docs" target is
-#       changed here to "blt-docs". The next version of RAJA renames its
-#       "docs" target to "raja-docs". A future update of BLT may also change
-#       the default name in BLT to something like "blt-docs", in which case
-#       this would no longer be necessary, either.
-if (CARE_ENABLE_SUBMODULE_DOCS)
-   set(BLT_DOCS_TARGET_NAME "blt-docs" CACHE STRING "Name of the master documentation generation target")
-endif ()
 
 set(BLT_CXX_STD "c++11" CACHE STRING "Set the c++ standard to use")
 
