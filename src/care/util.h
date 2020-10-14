@@ -163,7 +163,7 @@ namespace care {
             exit(code);
          }
       }
-#if defined(CARE_DEBUG)
+#if defined(__CUDACC__) && defined(CARE_DEBUG)
       CUDAWatchpoint::setOrCheckWatchpoint<int>();
 #endif
    }
@@ -193,7 +193,7 @@ namespace care {
             exit(code);
          }
       }
-#if defined(CARE_DEBUG)
+#if defined(__CUDACC__) && defined(CARE_DEBUG)
       CUDAWatchpoint::setOrCheckWatchpoint<int>();
 #endif
    }

@@ -118,9 +118,9 @@ endif()
 
 # HIP specific options
 if (ENABLE_HIP)
-   # Virtual device functions are not supported
-   # TODO: Remove when virtual device functions are supported
-   set(CARE_ENABLE_LOOP_FUSER OFF CACHE STRING "Enable the loop fuser")
+   # Virtual device functions are not supported in HIP
+   # TODO: Remove when virtual device functions are supported in HIP
+   set(CARE_ENABLE_MANAGED_PTR OFF CACHE BOOL "Enable aliases, tests, and reproducer for managed_ptr")
 endif ()
 
 ################################
