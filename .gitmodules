@@ -22,3 +22,6 @@
 	path = tpl/cub
 	url = ../../NVlabs/cub
 	ignore = all
+[submodule "tpl/rocprim"]
+	path = tpl/rocprim
+	url = ../../ROCmSoftwarePlatform/rocPRIM
