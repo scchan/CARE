@@ -13,6 +13,19 @@ if (ENABLE_CUDA)
 endif ()
 
 ################################
+# rocPRIM (required for HIP build)
+################################
+if (ENABLE_HIP)
+   message(STATUS "CARE: Using rocPRIM submodule")
+
+   if (NOT EXISTS ${PROJECT_SOURCE_DIR}/tpl/rocprim/CMakeLists.txt)
+      message(FATAL_ERROR "CARE: rocPRIM submodule not initialized. Run 'git submodule update --init' in the git repository or set rocprim_DIR or ROCPRIM_DIR to use an external build of rocPRIM.")
+   else ()
+      add_subdirectory(${PROJECT_SOURCE_DIR}/tpl/rocprim)
+   endif ()
+endif ()
+
+################################
 # CAMP (required)
 ################################
 if (NOT TARGET camp)
