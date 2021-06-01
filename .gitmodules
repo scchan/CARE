@@ -1,6 +1,8 @@
 [submodule "blt"]
 	path = blt
-	url = https://github.com/LLNL/blt
+	#url = https://github.com/LLNL/blt
+	url = https://github.com/scchan/blt
+	branch = virtual_functions
 	ignore = all
 [submodule "tpl/camp"]
 	path = tpl/camp
